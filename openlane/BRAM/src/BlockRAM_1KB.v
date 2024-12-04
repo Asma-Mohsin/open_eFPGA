@@ -93,6 +93,10 @@ module BlockRAM_1KB (
     wire [31:0] mem_dout;
     //sram_1rw1r_32_256_8_sky130 memory_cell(                             //dout0 is unused
     sky130_sram_1kbyte_1rw1r_32x256_8 memory_cell (  //dout0 is unused
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),
+        .vssd1(vssd1),
+`endif
         .clk0(clk),
         .csb0(memWriteEnable),
         .web0(memWriteEnable),
