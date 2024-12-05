@@ -1695,7 +1695,7 @@ PINS 148 ;
         + FIXED ( 219400 24480 ) N ;
 END PINS
 BLOCKAGES 1 ;
-    - LAYER met5 RECT ( 0 0 ) ( 240000 50000 ) ;
+    - LAYER met5 RECT ( 0 0 ) ( 225000 50000 ) ;
 END BLOCKAGES
 SPECIALNETS 2 ;
     - vccd1 ( PIN vccd1 ) ( * VPB ) ( * VPWR ) + USE POWER

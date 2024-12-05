@@ -209,7 +209,7 @@ def main():
     angle = -90  # Rotation angle in degrees
     x_offset = 100
     y_offset = 100
-    x_space = 5
+    x_space = -5
     y_space = 100
 
     # Read the tiles from the input file

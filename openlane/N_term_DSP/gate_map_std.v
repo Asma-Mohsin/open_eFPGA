@@ -111,12 +111,3 @@ module cus_mux41_buf (A0, A1, A2, A3, S0, S0N, S1, S1N, X);
       .S1(S1)
   );
 endmodule
-
-module clk_buf (A, X);
-  input A;
-  output X;
-        sky130_fd_sc_hd__clkbuf_16 _TECHMAP_REPLACE_ (
-        .A (A),
-        .X (X)
-        );
-endmodule

@@ -38,7 +38,7 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X1Y10_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X1Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X1Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
-        
+
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y1_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y2_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y3_LUT4AB vccd1 vssd1 vccd1 vssd1",
@@ -51,8 +51,9 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y10_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X2Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
-        
-        "eFPGA_top_i.eFPGA_inst.Tile_X3Y1_RegFile vccd1 vssd1 vccd1 vssd1",
+
+        "eFPGA_top_i.eFPGA_inst.Tile_X3Y0_N_term_single2 vccd1 vssd1 vccd1 vssd1",
+         "eFPGA_top_i.eFPGA_inst.Tile_X3Y1_RegFile vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y2_RegFile vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y3_RegFile vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y4_RegFile vccd1 vssd1 vccd1 vssd1",
@@ -64,6 +65,7 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y10_RegFile vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y11_RegFile vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X3Y12_RegFile vccd1 vssd1 vccd1 vssd1",
+        "eFPGA_top_i.eFPGA_inst.Tile_X3Y13_S_term_single2 vccd1 vssd1 vccd1 vssd1",
 
         "eFPGA_top_i.eFPGA_inst.Tile_X4Y1_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X4Y2_LUT4AB vccd1 vssd1 vccd1 vssd1",
@@ -77,7 +79,7 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X4Y10_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X4Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X4Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
-        
+
         "eFPGA_top_i.eFPGA_inst.Tile_X5Y1_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X5Y2_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X5Y3_LUT4AB vccd1 vssd1 vccd1 vssd1",
@@ -91,13 +93,15 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X5Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X5Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
         
+        "eFPGA_top_i.eFPGA_inst.Tile_X6Y0_N_term_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y1_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y3_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y5_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y7_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y9_DSP vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X6Y11_DSP vccd1 vssd1 vccd1 vssd1",
-        
+        "eFPGA_top_i.eFPGA_inst.Tile_X6Y13_S_term_DSP vccd1 vssd1 vccd1 vssd1",
+
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y1_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y2_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y3_LUT4AB vccd1 vssd1 vccd1 vssd1",
@@ -110,7 +114,7 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y10_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X7Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
-       
+
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y1_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y2_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y3_LUT4AB vccd1 vssd1 vccd1 vssd1",
@@ -123,7 +127,7 @@
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y10_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y11_LUT4AB vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X8Y12_LUT4AB vccd1 vssd1 vccd1 vssd1",
-        
+
         "eFPGA_top_i.eFPGA_inst.Tile_X9Y0_N_term_RAM_IO vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X9Y1_RAM_IO vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X9Y2_RAM_IO vccd1 vssd1 vccd1 vssd1",

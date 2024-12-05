@@ -1,5 +1,4 @@
 
-
 //
 module N_term_single (N1END, N2MID, N2END, N4END, NN4END, Ci, S1BEG, S2BEG, S2BEGb, S4BEG, SS4BEG, UserCLK, UserCLKo, FrameStrobe, FrameStrobe_O);
 	parameter MaxFramesPerCol = 20;

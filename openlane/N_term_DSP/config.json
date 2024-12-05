@@ -14,7 +14,7 @@
   "DESIGN_IS_CORE": 0,
   "FP_PDN_CORE_RING": 0,
   "GLB_RT_MAXLAYER": "met4",
-  "GRT_OBS": "met5 0 0 240 50",
+  "GRT_OBS": "met5 0 0 225 50",
   "SYNTH_LATCH_MAP": "dir::gate_map.v",
   "BASE_SDC_FILE": "dir::N_term_DSP.sdc",
   "FP_IO_VLENGTH": 0.8,
