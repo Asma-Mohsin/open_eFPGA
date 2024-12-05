@@ -86,6 +86,24 @@ module DSP_bot_switch_matrix
         input SS4END1,
         input SS4END2,
         input SS4END3,
+        input top2bot0,
+        input top2bot1,
+        input top2bot2,
+        input top2bot3,
+        input top2bot4,
+        input top2bot5,
+        input top2bot6,
+        input top2bot7,
+        input top2bot8,
+        input top2bot9,
+        input top2bot10,
+        input top2bot11,
+        input top2bot12,
+        input top2bot13,
+        input top2bot14,
+        input top2bot15,
+        input top2bot16,
+        input top2bot17,
         input W1END0,
         input W1END1,
         input W1END2,
@@ -112,24 +130,6 @@ module DSP_bot_switch_matrix
         input WW4END3,
         input W6END0,
         input W6END1,
-        input top2bot0,
-        input top2bot1,
-        input top2bot2,
-        input top2bot3,
-        input top2bot4,
-        input top2bot5,
-        input top2bot6,
-        input top2bot7,
-        input top2bot8,
-        input top2bot9,
-        input top2bot10,
-        input top2bot11,
-        input top2bot12,
-        input top2bot13,
-        input top2bot14,
-        input top2bot15,
-        input top2bot16,
-        input top2bot17,
         input Q0,
         input Q1,
         input Q2,
@@ -274,6 +274,16 @@ module DSP_bot_switch_matrix
         output NN4BEG1,
         output NN4BEG2,
         output NN4BEG3,
+        output bot2top0,
+        output bot2top1,
+        output bot2top2,
+        output bot2top3,
+        output bot2top4,
+        output bot2top5,
+        output bot2top6,
+        output bot2top7,
+        output bot2top8,
+        output bot2top9,
         output E1BEG0,
         output E1BEG1,
         output E1BEG2,
@@ -354,16 +364,6 @@ module DSP_bot_switch_matrix
         output WW4BEG3,
         output W6BEG0,
         output W6BEG1,
-        output bot2top0,
-        output bot2top1,
-        output bot2top2,
-        output bot2top3,
-        output bot2top4,
-        output bot2top5,
-        output bot2top6,
-        output bot2top7,
-        output bot2top8,
-        output bot2top9,
         output A0,
         output A1,
         output A2,
@@ -536,6 +536,16 @@ wire[8-1:0] NN4BEG0_input;
 wire[8-1:0] NN4BEG1_input;
 wire[8-1:0] NN4BEG2_input;
 wire[8-1:0] NN4BEG3_input;
+wire[1-1:0] bot2top0_input;
+wire[1-1:0] bot2top1_input;
+wire[1-1:0] bot2top2_input;
+wire[1-1:0] bot2top3_input;
+wire[1-1:0] bot2top4_input;
+wire[1-1:0] bot2top5_input;
+wire[1-1:0] bot2top6_input;
+wire[1-1:0] bot2top7_input;
+wire[1-1:0] bot2top8_input;
+wire[1-1:0] bot2top9_input;
 wire[4-1:0] E1BEG0_input;
 wire[4-1:0] E1BEG1_input;
 wire[4-1:0] E1BEG2_input;
@@ -616,16 +626,6 @@ wire[8-1:0] WW4BEG2_input;
 wire[8-1:0] WW4BEG3_input;
 wire[16-1:0] W6BEG0_input;
 wire[16-1:0] W6BEG1_input;
-wire[1-1:0] bot2top0_input;
-wire[1-1:0] bot2top1_input;
-wire[1-1:0] bot2top2_input;
-wire[1-1:0] bot2top3_input;
-wire[1-1:0] bot2top4_input;
-wire[1-1:0] bot2top5_input;
-wire[1-1:0] bot2top6_input;
-wire[1-1:0] bot2top7_input;
-wire[1-1:0] bot2top8_input;
-wire[1-1:0] bot2top9_input;
 wire[4-1:0] A0_input;
 wire[4-1:0] A1_input;
 wire[4-1:0] A2_input;
@@ -1160,6 +1160,36 @@ cus_mux81_buf inst_cus_mux81_buf_NN4BEG3 (
     .S2N(ConfigBits_N[25+2]),
     .X(NN4BEG3)
 );
+
+ //switch matrix multiplexer bot2top0 MUX-1
+assign bot2top0 = Q10;
+
+ //switch matrix multiplexer bot2top1 MUX-1
+assign bot2top1 = Q11;
+
+ //switch matrix multiplexer bot2top2 MUX-1
+assign bot2top2 = Q12;
+
+ //switch matrix multiplexer bot2top3 MUX-1
+assign bot2top3 = Q13;
+
+ //switch matrix multiplexer bot2top4 MUX-1
+assign bot2top4 = Q14;
+
+ //switch matrix multiplexer bot2top5 MUX-1
+assign bot2top5 = Q15;
+
+ //switch matrix multiplexer bot2top6 MUX-1
+assign bot2top6 = Q16;
+
+ //switch matrix multiplexer bot2top7 MUX-1
+assign bot2top7 = Q17;
+
+ //switch matrix multiplexer bot2top8 MUX-1
+assign bot2top8 = Q18;
+
+ //switch matrix multiplexer bot2top9 MUX-1
+assign bot2top9 = Q19;
 
  //switch matrix multiplexer E1BEG0 MUX-4
 assign E1BEG0_input = {J_l_CD_END1,JN2END3,J2MID_CDb_END3,Q3};
@@ -1888,36 +1918,6 @@ cus_mux161_buf inst_cus_mux161_buf_W6BEG1 (
     .S3N(ConfigBits_N[108+3]),
     .X(W6BEG1)
 );
-
- //switch matrix multiplexer bot2top0 MUX-1
-assign bot2top0 = Q10;
-
- //switch matrix multiplexer bot2top1 MUX-1
-assign bot2top1 = Q11;
-
- //switch matrix multiplexer bot2top2 MUX-1
-assign bot2top2 = Q12;
-
- //switch matrix multiplexer bot2top3 MUX-1
-assign bot2top3 = Q13;
-
- //switch matrix multiplexer bot2top4 MUX-1
-assign bot2top4 = Q14;
-
- //switch matrix multiplexer bot2top5 MUX-1
-assign bot2top5 = Q15;
-
- //switch matrix multiplexer bot2top6 MUX-1
-assign bot2top6 = Q16;
-
- //switch matrix multiplexer bot2top7 MUX-1
-assign bot2top7 = Q17;
-
- //switch matrix multiplexer bot2top8 MUX-1
-assign bot2top8 = Q18;
-
- //switch matrix multiplexer bot2top9 MUX-1
-assign bot2top9 = Q19;
 
  //switch matrix multiplexer A0 MUX-4
 assign A0_input = {J_l_AB_END0,J2END_AB_END0,J2MID_ABb_END0,J2MID_ABa_END0};

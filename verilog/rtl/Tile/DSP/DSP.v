@@ -1,5 +1,4 @@
-///	sta-blackbox
-//
+/// sta-blackbox
 module DSP
     #(
 `ifdef EMULATION

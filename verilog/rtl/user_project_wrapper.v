@@ -154,10 +154,6 @@ module user_project_wrapper #(
 
 
     eFPGA_top eFPGA_top_i (
-/*`ifdef USE_POWER_PINS
-        .vccd1(vccd1),
-        .vssd1(vssd1),
-`endif*/
         .CLK(clk),
         .resetn(resetn),
         .SelfWriteStrobe(SelfWriteStrobe),

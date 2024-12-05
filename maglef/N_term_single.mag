@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1733308832
+timestamp 1733391733
 << nwell >>
 rect 1066 6789 43922 7355
 rect 1066 5701 43922 6267
@@ -641,7 +641,7 @@ string FIXED_BBOX 0 0 45000 10000
 string LEFclass BLOCK
 string LEFview TRUE
 string GDS_END 507530
-string GDS_FILE /home/asma/Desktop/open_eFPGA/openlane/N_term_single/runs/24_12_04_10_39/results/signoff/N_term_single.magic.gds
+string GDS_FILE /home/asma/Desktop/open_eFPGA/openlane/N_term_single/runs/24_12_05_09_41/results/signoff/N_term_single.magic.gds
 string GDS_START 41474
 << end >>
 

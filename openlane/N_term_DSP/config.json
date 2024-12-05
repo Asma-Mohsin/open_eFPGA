@@ -10,7 +10,6 @@
   "CLOCK_PERIOD": "40",
   "CLOCK_PORT": "UserCLK",
   "CELL_PAD": 4,
-  "SYNTH_FLAT_TOP": "0",
   "SYNTH_NO_FLAT": "1",
   "DESIGN_IS_CORE": 0,
   "FP_PDN_CORE_RING": 0,

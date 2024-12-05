@@ -1,5 +1,4 @@
-///	sta-blackbox
-//
+/// sta-blackbox
 module LUT4AB
     #(
 `ifdef EMULATION

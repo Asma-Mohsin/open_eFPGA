@@ -1,4 +1,4 @@
-///	sta-blackbox
+/// sta-blackbox
 //
 module RegFile
     #(
