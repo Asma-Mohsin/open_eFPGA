@@ -10,6 +10,10 @@ module RegFile
         parameter NoConfigBits=414
     )
     (
+    `ifdef USE_POWER_PINS
+        inout vccd1,  // User area 1 1.8V supply
+        inout vssd1,  // User area 1 digital ground
+    `endif
  //Side.NORTH
         output [3:0] N1BEG,        //Port(Name=N1BEG, IO=OUTPUT, XOffset=0, YOffset=-1, WireCount=4, Side=NORTH)
         output [7:0] N2BEG,        //Port(Name=N2BEG, IO=OUTPUT, XOffset=0, YOffset=-1, WireCount=8, Side=NORTH)

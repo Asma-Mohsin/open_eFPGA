@@ -11,6 +11,10 @@ module W_IO
         parameter NoConfigBits=114
     )
     (
+    `ifdef USE_POWER_PINS
+        inout vccd1,  // User area 1 1.8V supply
+        inout vssd1,  // User area 1 digital ground
+    `endif
  //Side.EAST
         output [3:0] E1BEG,        //Port(Name=E1BEG, IO=OUTPUT, XOffset=1, YOffset=0, WireCount=4, Side=EAST)
         output [7:0] E2BEG,        //Port(Name=E2BEG, IO=OUTPUT, XOffset=1, YOffset=0, WireCount=8, Side=EAST)

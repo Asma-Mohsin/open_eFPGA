@@ -16,7 +16,7 @@
 `default_nettype none
 /*
  *-------------------------------------------------------------
- *
+ *EFPGA_USED_NUM_IOS
  * user_project_wrapper
  *
  * This wrapper enumerates all of the pins available to the
@@ -81,6 +81,9 @@ module user_project_wrapper #(
     /*--------------------------------------*/
     /* User project is instantiated  here   */
     /*--------------------------------------*/
+
+    localparam NUM_OF_CARAVEL_IOS = 7;
+
     // The number of IOs that can be used by the FPGA user design
     localparam NUM_FABRIC_USER_IOS = 24;
     localparam [31:0] BASE_WB_ADDRESS = 32'h3000_0000;
@@ -91,20 +94,22 @@ module user_project_wrapper #(
     localparam OUTPUT_DISABLE = 1'b1;
 
     // Fabric IOs
-    localparam EXTERNAL_CLK_IO = 0;
-    localparam CLK_SEL_0_IO = 1;
-    localparam CLK_SEL_1_IO = 2;
+    localparam EXTERNAL_CLK_IO = 7;
+    localparam CLK_SEL_0_IO = 8;
+    localparam CLK_SEL_1_IO = 9;
+
+    localparam S_CLK_IO = 10;
+    localparam S_DATA_IO = 11;
+    localparam EFPGA_UART_RX_IO = 12;
+    localparam RECEIVE_LED_IO = 13;
+
+    // Clock select definitions
     localparam CLK_SEL_0 = 0;
     localparam CLK_SEL_1 = 1;
 
-    localparam S_CLK_IO = 3;
-    localparam S_DATA_IO = 4;
-    localparam EFPGA_UART_RX_IO = 5;
-    localparam RECEIVE_LED_IO = 6;
-
     // eFPGA IOs
     localparam EFPGA_USED_NUM_IOS = 23;  // Due to pin count limitation, we don't use all eFPGA IOs
-    localparam EFPGA_IO_LOWEST = 7; // This maps to MPRJ_IO[14], which is io[0] on the FABulous board
+    localparam EFPGA_IO_LOWEST = RECEIVE_LED_IO + 1; // This maps to MPRJ_IO[14], which is io[0] on the FABulous board
     localparam EFPGA_IO_HIGHEST = EFPGA_IO_LOWEST + EFPGA_USED_NUM_IOS - 1;
 
     localparam RESETN_IO = EFPGA_IO_HIGHEST + 1;  // resetn is located after user IOs
@@ -154,7 +159,11 @@ module user_project_wrapper #(
 
 
     eFPGA_top eFPGA_top_i (
-        .CLK(clk),
+        `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
+        .CLK(CLK),
         .resetn(resetn),
         .SelfWriteStrobe(SelfWriteStrobe),
         .SelfWriteData(SelfWriteData),
@@ -277,6 +286,14 @@ module user_project_wrapper #(
     assign io_oeb[EFPGA_IO_HIGHEST:EFPGA_IO_LOWEST] = T_top[EFPGA_USED_NUM_IOS-1:0];
 
     assign CLK = clk_sel[CLK_SEL_0] ? (clk_sel[CLK_SEL_1] ? user_clock2 : wb_clk_i) : external_clock;
+
+    assign user_irq = 3'b0;
+
+    // This just drives the highest fabric IO to a constant 0
+    assign O_top[EFPGA_USED_NUM_IOS] = 1'b0;
+    assign io_out[NUM_OF_CARAVEL_IOS-1:0] = {NUM_OF_CARAVEL_IOS{1'b0}};
+    assign io_oeb[NUM_OF_CARAVEL_IOS-1:0] = {NUM_OF_CARAVEL_IOS{1'b0}};
+
 endmodule  // user_project_wrapper
 
 `default_nettype wire

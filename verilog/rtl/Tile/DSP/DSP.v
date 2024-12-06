@@ -10,6 +10,10 @@ module DSP
         parameter NoConfigBits=0
     )
     (
+    `ifdef USE_POWER_PINS
+        inout vccd1,  // User area 1 1.8V supply
+        inout vssd1,  // User area 1 digital ground
+    `endif
     //Tile_X0Y0_Direction.NORTH
         output [3:0] Tile_X0Y0_N1BEG, //Port(Name=N1BEG, IO=OUTPUT, XOffset=0, YOffset=-1, WireCount=4, Side=NORTH)
         output [7:0] Tile_X0Y0_N2BEG, //Port(Name=N2BEG, IO=OUTPUT, XOffset=0, YOffset=-1, WireCount=8, Side=NORTH)

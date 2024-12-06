@@ -5,12 +5,17 @@
         "dir::../../verilog/rtl/*.v",
         "dir::../../verilog/rtl/Fabric/*.v"
     ],
+
+    "FP_TAP_VERTICAL_HALO": 50,  "//": "no cell placed between IPs",
+    "FP_TAP_HORIZONTAL_HALO": 50, "//": "no cell placed between IPs",
+
+    "PL_TARGET_DENSITY": 0.8,
     "ROUTING_CORES": 10,
     "CLOCK_PERIOD": 40,
     "CLOCK_PORT": "wb_clk_i",
     "CLOCK_NET": "wb_clk_i",
-    "GRT_ALLOW_CONGESTION":0,
-    
+    "GRT_ALLOW_CONGESTION":1,
+    "FP_PDN_ENABLE_MACROS_GRID": 1,
     "FP_PDN_MACRO_HOOKS": [
         "eFPGA_top_i.eFPGA_inst.Tile_X0Y1_W_IO vccd1 vssd1 vccd1 vssd1",
         "eFPGA_top_i.eFPGA_inst.Tile_X0Y2_W_IO vccd1 vssd1 vccd1 vssd1",
@@ -157,13 +162,11 @@
         "dir::../../verilog/rtl/BB/*.v",
         "dir::../../verilog/rtl/Tile/*/*.v"
     ],
-    "FP_MACRO_VERTICAL_HALO": 20, "//": "no cell placed between IPs",
-    "FP_MACRO_HORIZONTAL_HALO": 20, "//": "no cell placed between IPs",
-    "FP_PDN_HORIZONTAL_HALO": 25,
-    "FP_PDN_VERTICAL_HALO": 25,
+    "FP_PDN_HORIZONTAL_HALO": 35,
+    "FP_PDN_VERTICAL_HALO": 35,
 
+    "PL_MACRO_HALO": "50 50,",
 
-    "PL_MACRO_HALO": "10 10",
     "EXTRA_LEFS": "dir::macro/lef/*.lef",
     "EXTRA_GDS_FILES": "dir::macro/gds/*.gds",
     "EXTRA_LIBS": "dir::macro/lib/*.lib",
@@ -171,7 +174,7 @@
     "IO_SYNC": 0,
     "MAX_TRANSITION_CONSTRAINT": 1.5,
     "RUN_LINTER": 0,
-    "QUIT_ON_SYNTH_CHECKS": 0,
+    "QUIT_ON_SYNTH_CHECKS": 1,
     "FP_PDN_CHECK_NODES": 0,
     "SYNTH_ELABORATE_ONLY": 0,
     "PL_RANDOM_GLB_PLACEMENT": 0,
@@ -183,12 +186,12 @@
     "FP_PDN_ENABLE_RAILS": 1,
     "GRT_REPAIR_ANTENNAS": 1,
     "RUN_FILL_INSERTION": 1,
-    "RUN_TAP_DECAP_INSERTION": 0,
+    "RUN_TAP_DECAP_INSERTION": 1,
     "FP_PDN_VPITCH": 75,
     "FP_PDN_HPITCH": 75,
     "FP_PDN_VOFFSET": 30,
     "FP_PDN_HOFFSET": 30,
-    "RUN_CTS": 0,
+    "RUN_CTS": 1,
     "MAGIC_ZEROIZE_ORIGIN": 0,
     "FP_SIZING": "absolute",
     "RUN_CVC": 0,

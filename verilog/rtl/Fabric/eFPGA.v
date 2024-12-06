@@ -5,6 +5,10 @@ module eFPGA
         parameter NoConfigBits=0
     )
     (
+        `ifdef USE_POWER_PINS
+    inout vccd1,  // User area 1 1.8V supply 
+    inout vssd1,  // User area 1 digital ground
+    `endif
         input Tile_X0Y1_A_O_top, //EXTERNAL
         output Tile_X0Y1_A_I_top, //EXTERNAL
         output Tile_X0Y1_A_T_top, //EXTERNAL
@@ -3553,6 +3557,10 @@ assign Tile_X9_FrameStrobe = FrameStrobe[MaxFramesPerCol*(9+1)-1:MaxFramesPerCol
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X1Y0_N_term_single (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y1_N1BEG),
     .N2MID(Tile_X1Y1_N2BEG),
     .N2END(Tile_X1Y1_N2BEGb),
@@ -3573,6 +3581,10 @@ N_term_single Tile_X1Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X2Y0_N_term_single (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y1_N1BEG),
     .N2MID(Tile_X2Y1_N2BEG),
     .N2END(Tile_X2Y1_N2BEGb),
@@ -3593,6 +3605,10 @@ N_term_single Tile_X2Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single2 Tile_X3Y0_N_term_single2 (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y1_N1BEG),
     .N2MID(Tile_X3Y1_N2BEG),
     .N2END(Tile_X3Y1_N2BEGb),
@@ -3612,6 +3628,10 @@ N_term_single2 Tile_X3Y0_N_term_single2 (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X4Y0_N_term_single (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y1_N1BEG),
     .N2MID(Tile_X4Y1_N2BEG),
     .N2END(Tile_X4Y1_N2BEGb),
@@ -3632,6 +3652,10 @@ N_term_single Tile_X4Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X5Y0_N_term_single (
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y1_N1BEG),
     .N2MID(Tile_X5Y1_N2BEG),
     .N2END(Tile_X5Y1_N2BEGb),
@@ -3652,6 +3676,10 @@ N_term_single Tile_X5Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_DSP Tile_X6Y0_N_term_DSP (
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X6Y1_N1BEG),
     .N2MID(Tile_X6Y1_N2BEG),
     .N2END(Tile_X6Y1_N2BEGb),
@@ -3671,6 +3699,10 @@ N_term_DSP Tile_X6Y0_N_term_DSP (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X7Y0_N_term_single (
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y1_N1BEG),
     .N2MID(Tile_X7Y1_N2BEG),
     .N2END(Tile_X7Y1_N2BEGb),
@@ -3691,6 +3723,10 @@ N_term_single Tile_X7Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_single Tile_X8Y0_N_term_single (
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y1_N1BEG),
     .N2MID(Tile_X8Y1_N2BEG),
     .N2END(Tile_X8Y1_N2BEGb),
@@ -3711,6 +3747,10 @@ N_term_single Tile_X8Y0_N_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 N_term_RAM_IO Tile_X9Y0_N_term_RAM_IO (
+`ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y1_N1BEG),
     .N2MID(Tile_X9Y1_N2BEG),
     .N2END(Tile_X9Y1_N2BEGb),
@@ -3735,6 +3775,10 @@ W_IO
 `endif
     Tile_X0Y1_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y1_W1BEG),
     .W2MID(Tile_X1Y1_W2BEG),
     .W2END(Tile_X1Y1_W2BEGb),
@@ -3777,6 +3821,10 @@ LUT4AB
 `endif
     Tile_X1Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y2_N1BEG),
     .N2MID(Tile_X1Y2_N2BEG),
     .N2END(Tile_X1Y2_N2BEGb),
@@ -3837,6 +3885,10 @@ LUT4AB
 `endif
     Tile_X2Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y2_N1BEG),
     .N2MID(Tile_X2Y2_N2BEG),
     .N2END(Tile_X2Y2_N2BEGb),
@@ -3897,6 +3949,10 @@ RegFile
 `endif
     Tile_X3Y1_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y2_N1BEG),
     .N2MID(Tile_X3Y2_N2BEG),
     .N2END(Tile_X3Y2_N2BEGb),
@@ -3955,6 +4011,10 @@ LUT4AB
 `endif
     Tile_X4Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y2_N1BEG),
     .N2MID(Tile_X4Y2_N2BEG),
     .N2END(Tile_X4Y2_N2BEGb),
@@ -4015,6 +4075,10 @@ LUT4AB
 `endif
     Tile_X5Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y2_N1BEG),
     .N2MID(Tile_X5Y2_N2BEG),
     .N2END(Tile_X5Y2_N2BEGb),
@@ -4076,6 +4140,10 @@ DSP
 `endif
     Tile_X6Y1_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y1_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y1_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y1_E2BEGb),
@@ -4156,6 +4224,10 @@ LUT4AB
 `endif
     Tile_X7Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y2_N1BEG),
     .N2MID(Tile_X7Y2_N2BEG),
     .N2END(Tile_X7Y2_N2BEGb),
@@ -4216,6 +4288,10 @@ LUT4AB
 `endif
     Tile_X8Y1_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y2_N1BEG),
     .N2MID(Tile_X8Y2_N2BEG),
     .N2END(Tile_X8Y2_N2BEGb),
@@ -4276,6 +4352,10 @@ RAM_IO
 `endif
     Tile_X9Y1_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y2_N1BEG),
     .N2MID(Tile_X9Y2_N2BEG),
     .N2END(Tile_X9Y2_N2BEGb),
@@ -4368,6 +4448,10 @@ W_IO
 `endif
     Tile_X0Y2_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y2_W1BEG),
     .W2MID(Tile_X1Y2_W2BEG),
     .W2END(Tile_X1Y2_W2BEGb),
@@ -4410,6 +4494,10 @@ LUT4AB
 `endif
     Tile_X1Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y3_N1BEG),
     .N2MID(Tile_X1Y3_N2BEG),
     .N2END(Tile_X1Y3_N2BEGb),
@@ -4470,6 +4558,10 @@ LUT4AB
 `endif
     Tile_X2Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y3_N1BEG),
     .N2MID(Tile_X2Y3_N2BEG),
     .N2END(Tile_X2Y3_N2BEGb),
@@ -4530,6 +4622,10 @@ RegFile
 `endif
     Tile_X3Y2_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y3_N1BEG),
     .N2MID(Tile_X3Y3_N2BEG),
     .N2END(Tile_X3Y3_N2BEGb),
@@ -4588,6 +4684,10 @@ LUT4AB
 `endif
     Tile_X4Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y3_N1BEG),
     .N2MID(Tile_X4Y3_N2BEG),
     .N2END(Tile_X4Y3_N2BEGb),
@@ -4648,6 +4748,10 @@ LUT4AB
 `endif
     Tile_X5Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y3_N1BEG),
     .N2MID(Tile_X5Y3_N2BEG),
     .N2END(Tile_X5Y3_N2BEGb),
@@ -4708,6 +4812,10 @@ LUT4AB
 `endif
     Tile_X7Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y3_N1BEG),
     .N2MID(Tile_X7Y3_N2BEG),
     .N2END(Tile_X7Y3_N2BEGb),
@@ -4768,6 +4876,10 @@ LUT4AB
 `endif
     Tile_X8Y2_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y3_N1BEG),
     .N2MID(Tile_X8Y3_N2BEG),
     .N2END(Tile_X8Y3_N2BEGb),
@@ -4828,6 +4940,10 @@ RAM_IO
 `endif
     Tile_X9Y2_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y3_N1BEG),
     .N2MID(Tile_X9Y3_N2BEG),
     .N2END(Tile_X9Y3_N2BEGb),
@@ -4920,6 +5036,10 @@ W_IO
 `endif
     Tile_X0Y3_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y3_W1BEG),
     .W2MID(Tile_X1Y3_W2BEG),
     .W2END(Tile_X1Y3_W2BEGb),
@@ -4962,6 +5082,10 @@ LUT4AB
 `endif
     Tile_X1Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y4_N1BEG),
     .N2MID(Tile_X1Y4_N2BEG),
     .N2END(Tile_X1Y4_N2BEGb),
@@ -5022,6 +5146,10 @@ LUT4AB
 `endif
     Tile_X2Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y4_N1BEG),
     .N2MID(Tile_X2Y4_N2BEG),
     .N2END(Tile_X2Y4_N2BEGb),
@@ -5082,6 +5210,10 @@ RegFile
 `endif
     Tile_X3Y3_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y4_N1BEG),
     .N2MID(Tile_X3Y4_N2BEG),
     .N2END(Tile_X3Y4_N2BEGb),
@@ -5140,6 +5272,10 @@ LUT4AB
 `endif
     Tile_X4Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y4_N1BEG),
     .N2MID(Tile_X4Y4_N2BEG),
     .N2END(Tile_X4Y4_N2BEGb),
@@ -5200,6 +5336,10 @@ LUT4AB
 `endif
     Tile_X5Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y4_N1BEG),
     .N2MID(Tile_X5Y4_N2BEG),
     .N2END(Tile_X5Y4_N2BEGb),
@@ -5261,6 +5401,10 @@ DSP
 `endif
     Tile_X6Y3_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y3_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y3_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y3_E2BEGb),
@@ -5341,6 +5485,10 @@ LUT4AB
 `endif
     Tile_X7Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y4_N1BEG),
     .N2MID(Tile_X7Y4_N2BEG),
     .N2END(Tile_X7Y4_N2BEGb),
@@ -5401,6 +5549,10 @@ LUT4AB
 `endif
     Tile_X8Y3_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y4_N1BEG),
     .N2MID(Tile_X8Y4_N2BEG),
     .N2END(Tile_X8Y4_N2BEGb),
@@ -5461,6 +5613,10 @@ RAM_IO
 `endif
     Tile_X9Y3_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y4_N1BEG),
     .N2MID(Tile_X9Y4_N2BEG),
     .N2END(Tile_X9Y4_N2BEGb),
@@ -5553,6 +5709,10 @@ W_IO
 `endif
     Tile_X0Y4_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y4_W1BEG),
     .W2MID(Tile_X1Y4_W2BEG),
     .W2END(Tile_X1Y4_W2BEGb),
@@ -5595,6 +5755,10 @@ LUT4AB
 `endif
     Tile_X1Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y5_N1BEG),
     .N2MID(Tile_X1Y5_N2BEG),
     .N2END(Tile_X1Y5_N2BEGb),
@@ -5655,6 +5819,10 @@ LUT4AB
 `endif
     Tile_X2Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y5_N1BEG),
     .N2MID(Tile_X2Y5_N2BEG),
     .N2END(Tile_X2Y5_N2BEGb),
@@ -5715,6 +5883,10 @@ RegFile
 `endif
     Tile_X3Y4_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y5_N1BEG),
     .N2MID(Tile_X3Y5_N2BEG),
     .N2END(Tile_X3Y5_N2BEGb),
@@ -5773,6 +5945,10 @@ LUT4AB
 `endif
     Tile_X4Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y5_N1BEG),
     .N2MID(Tile_X4Y5_N2BEG),
     .N2END(Tile_X4Y5_N2BEGb),
@@ -5833,6 +6009,10 @@ LUT4AB
 `endif
     Tile_X5Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y5_N1BEG),
     .N2MID(Tile_X5Y5_N2BEG),
     .N2END(Tile_X5Y5_N2BEGb),
@@ -5893,6 +6073,10 @@ LUT4AB
 `endif
     Tile_X7Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y5_N1BEG),
     .N2MID(Tile_X7Y5_N2BEG),
     .N2END(Tile_X7Y5_N2BEGb),
@@ -5953,6 +6137,10 @@ LUT4AB
 `endif
     Tile_X8Y4_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y5_N1BEG),
     .N2MID(Tile_X8Y5_N2BEG),
     .N2END(Tile_X8Y5_N2BEGb),
@@ -6013,6 +6201,10 @@ RAM_IO
 `endif
     Tile_X9Y4_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y5_N1BEG),
     .N2MID(Tile_X9Y5_N2BEG),
     .N2END(Tile_X9Y5_N2BEGb),
@@ -6105,6 +6297,10 @@ W_IO
 `endif
     Tile_X0Y5_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y5_W1BEG),
     .W2MID(Tile_X1Y5_W2BEG),
     .W2END(Tile_X1Y5_W2BEGb),
@@ -6147,6 +6343,10 @@ LUT4AB
 `endif
     Tile_X1Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y6_N1BEG),
     .N2MID(Tile_X1Y6_N2BEG),
     .N2END(Tile_X1Y6_N2BEGb),
@@ -6207,6 +6407,10 @@ LUT4AB
 `endif
     Tile_X2Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y6_N1BEG),
     .N2MID(Tile_X2Y6_N2BEG),
     .N2END(Tile_X2Y6_N2BEGb),
@@ -6267,6 +6471,10 @@ RegFile
 `endif
     Tile_X3Y5_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y6_N1BEG),
     .N2MID(Tile_X3Y6_N2BEG),
     .N2END(Tile_X3Y6_N2BEGb),
@@ -6325,6 +6533,10 @@ LUT4AB
 `endif
     Tile_X4Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y6_N1BEG),
     .N2MID(Tile_X4Y6_N2BEG),
     .N2END(Tile_X4Y6_N2BEGb),
@@ -6385,6 +6597,10 @@ LUT4AB
 `endif
     Tile_X5Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y6_N1BEG),
     .N2MID(Tile_X5Y6_N2BEG),
     .N2END(Tile_X5Y6_N2BEGb),
@@ -6446,6 +6662,10 @@ DSP
 `endif
     Tile_X6Y5_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y5_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y5_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y5_E2BEGb),
@@ -6526,6 +6746,10 @@ LUT4AB
 `endif
     Tile_X7Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y6_N1BEG),
     .N2MID(Tile_X7Y6_N2BEG),
     .N2END(Tile_X7Y6_N2BEGb),
@@ -6586,6 +6810,10 @@ LUT4AB
 `endif
     Tile_X8Y5_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y6_N1BEG),
     .N2MID(Tile_X8Y6_N2BEG),
     .N2END(Tile_X8Y6_N2BEGb),
@@ -6646,6 +6874,10 @@ RAM_IO
 `endif
     Tile_X9Y5_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y6_N1BEG),
     .N2MID(Tile_X9Y6_N2BEG),
     .N2END(Tile_X9Y6_N2BEGb),
@@ -6738,6 +6970,10 @@ W_IO
 `endif
     Tile_X0Y6_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y6_W1BEG),
     .W2MID(Tile_X1Y6_W2BEG),
     .W2END(Tile_X1Y6_W2BEGb),
@@ -6780,6 +7016,10 @@ LUT4AB
 `endif
     Tile_X1Y6_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y7_N1BEG),
     .N2MID(Tile_X1Y7_N2BEG),
     .N2END(Tile_X1Y7_N2BEGb),
@@ -6840,6 +7080,10 @@ LUT4AB
 `endif
     Tile_X2Y6_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y7_N1BEG),
     .N2MID(Tile_X2Y7_N2BEG),
     .N2END(Tile_X2Y7_N2BEGb),
@@ -6900,6 +7144,10 @@ RegFile
 `endif
     Tile_X3Y6_RegFile
     (
+        `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y7_N1BEG),
     .N2MID(Tile_X3Y7_N2BEG),
     .N2END(Tile_X3Y7_N2BEGb),
@@ -6958,6 +7206,10 @@ LUT4AB
 `endif
     Tile_X4Y6_LUT4AB
     (
+        `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y7_N1BEG),
     .N2MID(Tile_X4Y7_N2BEG),
     .N2END(Tile_X4Y7_N2BEGb),
@@ -7018,6 +7270,10 @@ LUT4AB
 `endif
     Tile_X5Y6_LUT4AB
     (
+        `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y7_N1BEG),
     .N2MID(Tile_X5Y7_N2BEG),
     .N2END(Tile_X5Y7_N2BEGb),
@@ -7078,6 +7334,10 @@ LUT4AB
 `endif
     Tile_X7Y6_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y7_N1BEG),
     .N2MID(Tile_X7Y7_N2BEG),
     .N2END(Tile_X7Y7_N2BEGb),
@@ -7138,6 +7398,10 @@ LUT4AB
 `endif
     Tile_X8Y6_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y7_N1BEG),
     .N2MID(Tile_X8Y7_N2BEG),
     .N2END(Tile_X8Y7_N2BEGb),
@@ -7198,6 +7462,10 @@ RAM_IO
 `endif
     Tile_X9Y6_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y7_N1BEG),
     .N2MID(Tile_X9Y7_N2BEG),
     .N2END(Tile_X9Y7_N2BEGb),
@@ -7290,6 +7558,10 @@ W_IO
 `endif
     Tile_X0Y7_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y7_W1BEG),
     .W2MID(Tile_X1Y7_W2BEG),
     .W2END(Tile_X1Y7_W2BEGb),
@@ -7332,6 +7604,10 @@ LUT4AB
 `endif
     Tile_X1Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y8_N1BEG),
     .N2MID(Tile_X1Y8_N2BEG),
     .N2END(Tile_X1Y8_N2BEGb),
@@ -7392,6 +7668,10 @@ LUT4AB
 `endif
     Tile_X2Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y8_N1BEG),
     .N2MID(Tile_X2Y8_N2BEG),
     .N2END(Tile_X2Y8_N2BEGb),
@@ -7452,6 +7732,10 @@ RegFile
 `endif
     Tile_X3Y7_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y8_N1BEG),
     .N2MID(Tile_X3Y8_N2BEG),
     .N2END(Tile_X3Y8_N2BEGb),
@@ -7510,6 +7794,10 @@ LUT4AB
 `endif
     Tile_X4Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y8_N1BEG),
     .N2MID(Tile_X4Y8_N2BEG),
     .N2END(Tile_X4Y8_N2BEGb),
@@ -7570,6 +7858,10 @@ LUT4AB
 `endif
     Tile_X5Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y8_N1BEG),
     .N2MID(Tile_X5Y8_N2BEG),
     .N2END(Tile_X5Y8_N2BEGb),
@@ -7631,6 +7923,10 @@ DSP
 `endif
     Tile_X6Y7_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y7_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y7_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y7_E2BEGb),
@@ -7711,6 +8007,10 @@ LUT4AB
 `endif
     Tile_X7Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y8_N1BEG),
     .N2MID(Tile_X7Y8_N2BEG),
     .N2END(Tile_X7Y8_N2BEGb),
@@ -7771,6 +8071,10 @@ LUT4AB
 `endif
     Tile_X8Y7_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y8_N1BEG),
     .N2MID(Tile_X8Y8_N2BEG),
     .N2END(Tile_X8Y8_N2BEGb),
@@ -7831,6 +8135,10 @@ RAM_IO
 `endif
     Tile_X9Y7_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y8_N1BEG),
     .N2MID(Tile_X9Y8_N2BEG),
     .N2END(Tile_X9Y8_N2BEGb),
@@ -7923,6 +8231,10 @@ W_IO
 `endif
     Tile_X0Y8_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y8_W1BEG),
     .W2MID(Tile_X1Y8_W2BEG),
     .W2END(Tile_X1Y8_W2BEGb),
@@ -7965,6 +8277,10 @@ LUT4AB
 `endif
     Tile_X1Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y9_N1BEG),
     .N2MID(Tile_X1Y9_N2BEG),
     .N2END(Tile_X1Y9_N2BEGb),
@@ -8025,6 +8341,10 @@ LUT4AB
 `endif
     Tile_X2Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y9_N1BEG),
     .N2MID(Tile_X2Y9_N2BEG),
     .N2END(Tile_X2Y9_N2BEGb),
@@ -8085,6 +8405,10 @@ RegFile
 `endif
     Tile_X3Y8_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y9_N1BEG),
     .N2MID(Tile_X3Y9_N2BEG),
     .N2END(Tile_X3Y9_N2BEGb),
@@ -8143,6 +8467,10 @@ LUT4AB
 `endif
     Tile_X4Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y9_N1BEG),
     .N2MID(Tile_X4Y9_N2BEG),
     .N2END(Tile_X4Y9_N2BEGb),
@@ -8203,6 +8531,10 @@ LUT4AB
 `endif
     Tile_X5Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y9_N1BEG),
     .N2MID(Tile_X5Y9_N2BEG),
     .N2END(Tile_X5Y9_N2BEGb),
@@ -8263,6 +8595,10 @@ LUT4AB
 `endif
     Tile_X7Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y9_N1BEG),
     .N2MID(Tile_X7Y9_N2BEG),
     .N2END(Tile_X7Y9_N2BEGb),
@@ -8323,6 +8659,10 @@ LUT4AB
 `endif
     Tile_X8Y8_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y9_N1BEG),
     .N2MID(Tile_X8Y9_N2BEG),
     .N2END(Tile_X8Y9_N2BEGb),
@@ -8383,6 +8723,10 @@ RAM_IO
 `endif
     Tile_X9Y8_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y9_N1BEG),
     .N2MID(Tile_X9Y9_N2BEG),
     .N2END(Tile_X9Y9_N2BEGb),
@@ -8475,6 +8819,10 @@ W_IO
 `endif
     Tile_X0Y9_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y9_W1BEG),
     .W2MID(Tile_X1Y9_W2BEG),
     .W2END(Tile_X1Y9_W2BEGb),
@@ -8517,6 +8865,10 @@ LUT4AB
 `endif
     Tile_X1Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y10_N1BEG),
     .N2MID(Tile_X1Y10_N2BEG),
     .N2END(Tile_X1Y10_N2BEGb),
@@ -8577,6 +8929,10 @@ LUT4AB
 `endif
     Tile_X2Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y10_N1BEG),
     .N2MID(Tile_X2Y10_N2BEG),
     .N2END(Tile_X2Y10_N2BEGb),
@@ -8637,6 +8993,10 @@ RegFile
 `endif
     Tile_X3Y9_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y10_N1BEG),
     .N2MID(Tile_X3Y10_N2BEG),
     .N2END(Tile_X3Y10_N2BEGb),
@@ -8695,6 +9055,10 @@ LUT4AB
 `endif
     Tile_X4Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y10_N1BEG),
     .N2MID(Tile_X4Y10_N2BEG),
     .N2END(Tile_X4Y10_N2BEGb),
@@ -8755,6 +9119,10 @@ LUT4AB
 `endif
     Tile_X5Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y10_N1BEG),
     .N2MID(Tile_X5Y10_N2BEG),
     .N2END(Tile_X5Y10_N2BEGb),
@@ -8816,6 +9184,10 @@ DSP
 `endif
     Tile_X6Y9_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y9_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y9_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y9_E2BEGb),
@@ -8896,6 +9268,10 @@ LUT4AB
 `endif
     Tile_X7Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y10_N1BEG),
     .N2MID(Tile_X7Y10_N2BEG),
     .N2END(Tile_X7Y10_N2BEGb),
@@ -8956,6 +9332,10 @@ LUT4AB
 `endif
     Tile_X8Y9_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y10_N1BEG),
     .N2MID(Tile_X8Y10_N2BEG),
     .N2END(Tile_X8Y10_N2BEGb),
@@ -9016,6 +9396,10 @@ RAM_IO
 `endif
     Tile_X9Y9_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y10_N1BEG),
     .N2MID(Tile_X9Y10_N2BEG),
     .N2END(Tile_X9Y10_N2BEGb),
@@ -9108,6 +9492,10 @@ W_IO
 `endif
     Tile_X0Y10_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y10_W1BEG),
     .W2MID(Tile_X1Y10_W2BEG),
     .W2END(Tile_X1Y10_W2BEGb),
@@ -9150,6 +9538,10 @@ LUT4AB
 `endif
     Tile_X1Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y11_N1BEG),
     .N2MID(Tile_X1Y11_N2BEG),
     .N2END(Tile_X1Y11_N2BEGb),
@@ -9210,6 +9602,10 @@ LUT4AB
 `endif
     Tile_X2Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y11_N1BEG),
     .N2MID(Tile_X2Y11_N2BEG),
     .N2END(Tile_X2Y11_N2BEGb),
@@ -9270,6 +9666,10 @@ RegFile
 `endif
     Tile_X3Y10_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y11_N1BEG),
     .N2MID(Tile_X3Y11_N2BEG),
     .N2END(Tile_X3Y11_N2BEGb),
@@ -9328,6 +9728,10 @@ LUT4AB
 `endif
     Tile_X4Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y11_N1BEG),
     .N2MID(Tile_X4Y11_N2BEG),
     .N2END(Tile_X4Y11_N2BEGb),
@@ -9388,6 +9792,10 @@ LUT4AB
 `endif
     Tile_X5Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y11_N1BEG),
     .N2MID(Tile_X5Y11_N2BEG),
     .N2END(Tile_X5Y11_N2BEGb),
@@ -9448,6 +9856,10 @@ LUT4AB
 `endif
     Tile_X7Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y11_N1BEG),
     .N2MID(Tile_X7Y11_N2BEG),
     .N2END(Tile_X7Y11_N2BEGb),
@@ -9508,6 +9920,10 @@ LUT4AB
 `endif
     Tile_X8Y10_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y11_N1BEG),
     .N2MID(Tile_X8Y11_N2BEG),
     .N2END(Tile_X8Y11_N2BEGb),
@@ -9568,6 +9984,10 @@ RAM_IO
 `endif
     Tile_X9Y10_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y11_N1BEG),
     .N2MID(Tile_X9Y11_N2BEG),
     .N2END(Tile_X9Y11_N2BEGb),
@@ -9660,6 +10080,10 @@ W_IO
 `endif
     Tile_X0Y11_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y11_W1BEG),
     .W2MID(Tile_X1Y11_W2BEG),
     .W2END(Tile_X1Y11_W2BEGb),
@@ -9702,6 +10126,10 @@ LUT4AB
 `endif
     Tile_X1Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y12_N1BEG),
     .N2MID(Tile_X1Y12_N2BEG),
     .N2END(Tile_X1Y12_N2BEGb),
@@ -9762,6 +10190,10 @@ LUT4AB
 `endif
     Tile_X2Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y12_N1BEG),
     .N2MID(Tile_X2Y12_N2BEG),
     .N2END(Tile_X2Y12_N2BEGb),
@@ -9822,6 +10254,10 @@ RegFile
 `endif
     Tile_X3Y11_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y12_N1BEG),
     .N2MID(Tile_X3Y12_N2BEG),
     .N2END(Tile_X3Y12_N2BEGb),
@@ -9880,6 +10316,10 @@ LUT4AB
 `endif
     Tile_X4Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y12_N1BEG),
     .N2MID(Tile_X4Y12_N2BEG),
     .N2END(Tile_X4Y12_N2BEGb),
@@ -9940,6 +10380,10 @@ LUT4AB
 `endif
     Tile_X5Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y12_N1BEG),
     .N2MID(Tile_X5Y12_N2BEG),
     .N2END(Tile_X5Y12_N2BEGb),
@@ -10001,6 +10445,10 @@ DSP
 `endif
     Tile_X6Y11_DSP
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .Tile_X0Y0_E1END(Tile_X5Y11_E1BEG),
     .Tile_X0Y0_E2MID(Tile_X5Y11_E2BEG),
     .Tile_X0Y0_E2END(Tile_X5Y11_E2BEGb),
@@ -10081,6 +10529,10 @@ LUT4AB
 `endif
     Tile_X7Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y12_N1BEG),
     .N2MID(Tile_X7Y12_N2BEG),
     .N2END(Tile_X7Y12_N2BEGb),
@@ -10141,6 +10593,10 @@ LUT4AB
 `endif
     Tile_X8Y11_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y12_N1BEG),
     .N2MID(Tile_X8Y12_N2BEG),
     .N2END(Tile_X8Y12_N2BEGb),
@@ -10201,6 +10657,10 @@ RAM_IO
 `endif
     Tile_X9Y11_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y12_N1BEG),
     .N2MID(Tile_X9Y12_N2BEG),
     .N2END(Tile_X9Y12_N2BEGb),
@@ -10293,6 +10753,10 @@ W_IO
 `endif
     Tile_X0Y12_W_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .W1END(Tile_X1Y12_W1BEG),
     .W2MID(Tile_X1Y12_W2BEG),
     .W2END(Tile_X1Y12_W2BEGb),
@@ -10335,6 +10799,10 @@ LUT4AB
 `endif
     Tile_X1Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X1Y13_N1BEG),
     .N2MID(Tile_X1Y13_N2BEG),
     .N2END(Tile_X1Y13_N2BEGb),
@@ -10395,6 +10863,10 @@ LUT4AB
 `endif
     Tile_X2Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X2Y13_N1BEG),
     .N2MID(Tile_X2Y13_N2BEG),
     .N2END(Tile_X2Y13_N2BEGb),
@@ -10455,6 +10927,10 @@ RegFile
 `endif
     Tile_X3Y12_RegFile
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X3Y13_N1BEG),
     .N2MID(Tile_X3Y13_N2BEG),
     .N2END(Tile_X3Y13_N2BEGb),
@@ -10513,6 +10989,10 @@ LUT4AB
 `endif
     Tile_X4Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X4Y13_N1BEG),
     .N2MID(Tile_X4Y13_N2BEG),
     .N2END(Tile_X4Y13_N2BEGb),
@@ -10573,6 +11053,10 @@ LUT4AB
 `endif
     Tile_X5Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X5Y13_N1BEG),
     .N2MID(Tile_X5Y13_N2BEG),
     .N2END(Tile_X5Y13_N2BEGb),
@@ -10633,6 +11117,10 @@ LUT4AB
 `endif
     Tile_X7Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X7Y13_N1BEG),
     .N2MID(Tile_X7Y13_N2BEG),
     .N2END(Tile_X7Y13_N2BEGb),
@@ -10693,6 +11181,10 @@ LUT4AB
 `endif
     Tile_X8Y12_LUT4AB
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X8Y13_N1BEG),
     .N2MID(Tile_X8Y13_N2BEG),
     .N2END(Tile_X8Y13_N2BEGb),
@@ -10753,6 +11245,10 @@ RAM_IO
 `endif
     Tile_X9Y12_RAM_IO
     (
+    `ifdef USE_POWER_PINS
+        .vccd1(vccd1),  // User area 1 1.8V supply
+        .vssd1(vssd1),  // User area 1 digital ground
+    `endif
     .N1END(Tile_X9Y13_N1BEG),
     .N2MID(Tile_X9Y13_N2BEG),
     .N2END(Tile_X9Y13_N2BEGb),
@@ -10838,6 +11334,10 @@ RAM_IO
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X1Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X1Y12_S1BEG),
     .S2MID(Tile_X1Y12_S2BEG),
     .S2END(Tile_X1Y12_S2BEGb),
@@ -10858,6 +11358,10 @@ S_term_single Tile_X1Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X2Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X2Y12_S1BEG),
     .S2MID(Tile_X2Y12_S2BEG),
     .S2END(Tile_X2Y12_S2BEGb),
@@ -10878,6 +11382,10 @@ S_term_single Tile_X2Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single2 Tile_X3Y13_S_term_single2 (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X3Y12_S1BEG),
     .S2MID(Tile_X3Y12_S2BEG),
     .S2END(Tile_X3Y12_S2BEGb),
@@ -10897,6 +11405,10 @@ S_term_single2 Tile_X3Y13_S_term_single2 (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X4Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X4Y12_S1BEG),
     .S2MID(Tile_X4Y12_S2BEG),
     .S2END(Tile_X4Y12_S2BEGb),
@@ -10917,6 +11429,10 @@ S_term_single Tile_X4Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X5Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X5Y12_S1BEG),
     .S2MID(Tile_X5Y12_S2BEG),
     .S2END(Tile_X5Y12_S2BEGb),
@@ -10937,6 +11453,10 @@ S_term_single Tile_X5Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_DSP Tile_X6Y13_S_term_DSP (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X6Y12_S1BEG),
     .S2MID(Tile_X6Y12_S2BEG),
     .S2END(Tile_X6Y12_S2BEGb),
@@ -10956,6 +11476,10 @@ S_term_DSP Tile_X6Y13_S_term_DSP (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X7Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X7Y12_S1BEG),
     .S2MID(Tile_X7Y12_S2BEG),
     .S2END(Tile_X7Y12_S2BEGb),
@@ -10976,6 +11500,10 @@ S_term_single Tile_X7Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_single Tile_X8Y13_S_term_single (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X8Y12_S1BEG),
     .S2MID(Tile_X8Y12_S2BEG),
     .S2END(Tile_X8Y12_S2BEGb),
@@ -10996,6 +11524,10 @@ S_term_single Tile_X8Y13_S_term_single (
 
  //tile IO port will get directly connected to top-level tile module
 S_term_RAM_IO Tile_X9Y13_S_term_RAM_IO (
+`ifdef USE_POWER_PINS
+    .vccd1(vccd1),  // User area 1 1.8V supply
+    .vssd1(vssd1),  // User area 1 digital ground
+`endif
     .S1END(Tile_X9Y12_S1BEG),
     .S2MID(Tile_X9Y12_S2BEG),
     .S2END(Tile_X9Y12_S2BEGb),
