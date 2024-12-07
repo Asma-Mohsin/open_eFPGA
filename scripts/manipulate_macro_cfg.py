@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 import math
 import re
-import shutil
-import os
-from datetime import datetime
 
 #TODO: Improve this script so e.g. arguments can be given from the command line
 
@@ -301,7 +298,7 @@ def main():
     angle = -90  # Rotation angle in degrees
     x_offset = 100
     y_offset = 100
-    x_space_offset = 2
+    x_space_offset = 5 
     y_space_offset = 1
     pdn_pitch_vertical = 75
 
@@ -314,8 +311,8 @@ def main():
     # tiles = change_space_between_tiles_horizontal(tiles, x_space_offset, False,
     #                                               x_start, x_stop)
     #FIXME: This is just a workaround, function does not work correctly
-    x_start = 8
-    x_stop = 7
+    x_start = 9
+    x_stop = 0
     # tiles = change_space_between_tiles_horizontal(tiles, x_space_offset, False,
     #                                             x_start, x_stop)
     tiles = change_space_between_tiles_horizontal(tiles, x_space_offset, False,
