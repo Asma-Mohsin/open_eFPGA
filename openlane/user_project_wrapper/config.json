@@ -8,7 +8,8 @@
 
     "FP_TAP_VERTICAL_HALO": 50,  "//": "no cell placed between IPs",
     "FP_TAP_HORIZONTAL_HALO": 50, "//": "no cell placed between IPs",
-
+     "RUN_KLAYOUT_XOR": 0,        "//": "please remove it later",
+     "QUIT_ON_SYNTH_CHECKS": 0,
     "PL_TARGET_DENSITY": 0.8,
     "ROUTING_CORES": 10,
     "CLOCK_PERIOD": 40,
@@ -35,8 +36,8 @@
     "BASE_SDC_FILE": "dir::base_user_project_wrapper.sdc",
     "IO_SYNC": 0,
     "MAX_TRANSITION_CONSTRAINT": 1.5,
-    "RUN_LINTER": 0,
-    "QUIT_ON_SYNTH_CHECKS": 1,
+    "RUN_LINTER": 1,
+    
     "FP_PDN_CHECK_NODES": 0,
     "SYNTH_ELABORATE_ONLY": 0,
     "PL_RANDOM_GLB_PLACEMENT": 0,

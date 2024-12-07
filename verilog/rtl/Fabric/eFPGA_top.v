@@ -1,3 +1,4 @@
+/* verilator lint_off UNUSEDPARAM */
 module eFPGA_top #(
     parameter include_eFPGA = 1,
     parameter NumberOfRows = 12,
@@ -8,10 +9,10 @@ module eFPGA_top #(
     parameter FrameSelectWidth = 5,
     parameter RowSelectWidth = 5
 ) (
-     `ifdef USE_POWER_PINS
-    inout vccd1,  // User area 1 1.8V supply 
+`ifdef USE_POWER_PINS
+    inout vccd1,  // User area 1 1.8V supply
     inout vssd1,  // User area 1 digital ground
-    `endif
+`endif
     //External IO port
     output [47:0] A_config_C,
     output [47:0] B_config_C,
@@ -44,9 +45,7 @@ module eFPGA_top #(
     wire [FrameBitsPerRow-1:0] FrameAddressRegister;
     wire LongFrameStrobe;
     wire [31:0] LocalWriteData;
-    wire LocalWriteStrobe;
     wire [RowSelectWidth-1:0] RowSelect;
-    wire resten;
 `ifndef EMULATION
 
     eFPGA_Config #(
@@ -65,7 +64,9 @@ module eFPGA_top #(
         .SelfWriteData(SelfWriteData),
         .SelfWriteStrobe(SelfWriteStrobe),
         .ConfigWriteData(LocalWriteData),
-        .ConfigWriteStrobe(LocalWriteStrobe),
+        /* verilator lint_off PINCONNECTEMPTY */
+        .ConfigWriteStrobe(),
+        /* verilator lint_off PINCONNECTEMPTY */
         .FrameAddressRegister(FrameAddressRegister),
         .LongFrameStrobe(LongFrameStrobe),
         .RowSelect(RowSelect)
@@ -1073,10 +1074,10 @@ module eFPGA_top #(
 
 
     BlockRAM_1KB Inst_BlockRAM_0 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[7:0]),
         .rd_data(RAM2FAB_D_I[31:0]),
@@ -1091,10 +1092,10 @@ module eFPGA_top #(
     );
 
     BlockRAM_1KB Inst_BlockRAM_1 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[23:16]),
         .rd_data(RAM2FAB_D_I[63:32]),
@@ -1109,10 +1110,10 @@ module eFPGA_top #(
     );
 
     BlockRAM_1KB Inst_BlockRAM_2 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[39:32]),
         .rd_data(RAM2FAB_D_I[95:64]),
@@ -1127,10 +1128,10 @@ module eFPGA_top #(
     );
 
     BlockRAM_1KB Inst_BlockRAM_3 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[55:48]),
         .rd_data(RAM2FAB_D_I[127:96]),
@@ -1145,10 +1146,10 @@ module eFPGA_top #(
     );
 
     BlockRAM_1KB Inst_BlockRAM_4 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[71:64]),
         .rd_data(RAM2FAB_D_I[159:128]),
@@ -1163,10 +1164,10 @@ module eFPGA_top #(
     );
 
     BlockRAM_1KB Inst_BlockRAM_5 (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .clk(CLK),
         .rd_addr(FAB2RAM_A_O[87:80]),
         .rd_data(RAM2FAB_D_I[191:160]),
@@ -1182,4 +1183,4 @@ module eFPGA_top #(
 
     assign FrameData = {32'h12345678, FrameRegister, 32'h12345678};
 endmodule
-
+/* verilator lint_on UNUSEDPARAM */

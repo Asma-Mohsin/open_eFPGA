@@ -5,7 +5,7 @@
         "dir::src/*.v"
     ],
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 130 40",
+    "DIE_AREA": "0 0 130 50",
     
     "SYNTH_MAX_FANOUT":5,
      "CELL_PAD":4,

@@ -1,4 +1,5 @@
-/// sta-blackbox
+`timescale 1ns / 1ps
+/* verilator lint_off LATCH */
 module BlockRAM_1KB (
 `ifdef USE_POWER_PINS
     vccd1,
@@ -92,22 +93,24 @@ module BlockRAM_1KB (
         end
     end
     wire [31:0] mem_dout;
-    //sram_1rw1r_32_256_8_sky130 memory_cell(                             //dout0 is unused
     sky130_sram_1kbyte_1rw1r_32x256_8 memory_cell (  //dout0 is unused
 `ifdef USE_POWER_PINS
-        .vccd1(vccd1),
-        .vssd1(vssd1),
+        .vccd1 (vccd1),
+        .vssd1 (vssd1),
 `endif
-        .clk0(clk),
-        .csb0(memWriteEnable),
-        .web0(memWriteEnable),
+        .clk0  (clk),
+        .csb0  (memWriteEnable),
+        .web0  (memWriteEnable),
         .wmask0(mem_wr_mask),
-        .addr0(wr_addr[7:0]),
-        .din0(muxedDataIn),  //.dout0(),
-        .clk1(clk),
-        .csb1(1'b0),
-        .addr1(rd_addr[7:0]),
-        .dout1(mem_dout)
+        .addr0 (wr_addr[7:0]),
+        .din0  (muxedDataIn),
+        /* verilator lint_off PINCONNECTEMPTY */
+        .dout0 (),
+        /* verilator lint_on PINCONNECTEMPTY */
+        .clk1  (clk),
+        .csb1  (1'b0),
+        .addr1 (rd_addr[7:0]),
+        .dout1 (mem_dout)
     );
     reg [1:0] rd_dout_sel;
     always @(posedge clk) begin
@@ -150,39 +153,4 @@ module BlockRAM_1KB (
         end
     end
 endmodule
-
-
-//(* blackbox *)
-//module sram_1rw1r_32_256_8_sky130(
-////`ifdef USE_POWER_PINS
-////	vdd,
-////	gnd,
-////`endif
-//// Port 0: RW
-//    clk0,csb0,web0,wmask0,addr0,din0,dout0,
-//// Port 1: R
-//    clk1,csb1,addr1,dout1
-//  );
-//
-//  parameter NUM_WMASKS = 4 ;
-//  parameter DATA_WIDTH = 32 ;
-//  parameter ADDR_WIDTH = 8 ;
-//  parameter RAM_DEPTH = 1 << ADDR_WIDTH;
-//  // FIXME: This delay is arbitrary.
-//  parameter DELAY = 3 ;
-////`ifdef USE_POWER_PINS
-// // inout vdd;
-// // inout gnd;
-////`endif
-//  input  clk0; // clock
-//  input   csb0; // active low chip select
-//  input  web0; // active low write control
-//  input [NUM_WMASKS-1:0]   wmask0; // write mask
-//  input [ADDR_WIDTH-1:0]  addr0;
-//  input [DATA_WIDTH-1:0]  din0;
-//  output [DATA_WIDTH-1:0] dout0;
-//  input  clk1; // clock
-//  input   csb1; // active low chip select
-//  input [ADDR_WIDTH-1:0]  addr1;
-//  output [DATA_WIDTH-1:0] dout1;
-//endmodule
+/* verilator lint_on LATCH */

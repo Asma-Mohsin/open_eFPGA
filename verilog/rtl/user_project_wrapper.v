@@ -30,7 +30,9 @@
  */
 
 module user_project_wrapper #(
+    /* verilator lint_off UNUSEDPARAM */
     parameter BITS = 32
+    /* verilator lint_on UNUSEDPARAM */
 ) (
 `ifdef USE_POWER_PINS
     inout vdda1,  // User area 1 3.3V supply
@@ -49,10 +51,12 @@ module user_project_wrapper #(
     input wbs_stb_i,
     input wbs_cyc_i,
     input wbs_we_i,
+    /* verilator lint_off UNUSEDSIGNAL*/
     input [3:0] wbs_sel_i,
+    /* verilator lint_off UNUSEDSIGNAL*/
     input [31:0] wbs_dat_i,
     input [31:0] wbs_adr_i,
-    output wbs_ack_o,
+    output reg wbs_ack_o,
     output [31:0] wbs_dat_o,
 
     // Logic Analyzer Signals
@@ -143,10 +147,6 @@ module user_project_wrapper #(
     wire s_clk;
     wire s_data;
 
-    // Module selection signals
-    wire select_module;
-    wire sel;
-
     wire [1:0] clk_sel;
 
     // Latch for config_strobe
@@ -159,28 +159,30 @@ module user_project_wrapper #(
 
 
     eFPGA_top eFPGA_top_i (
-        `ifdef USE_POWER_PINS
+`ifdef USE_POWER_PINS
         .vccd1(vccd1),  // User area 1 1.8V supply
         .vssd1(vssd1),  // User area 1 digital ground
-    `endif
+`endif
         .CLK(CLK),
         .resetn(resetn),
         .SelfWriteStrobe(SelfWriteStrobe),
         .SelfWriteData(SelfWriteData),
         .Rx(efpga_uart_rx),
+        /* verilator lint_off PINCONNECTEMPTY */
         .ComActive(),
+        /* verilator lint_on PINCONNECTEMPTY */
         .ReceiveLED(ReceiveLED),
         .s_clk(s_clk),
         .s_data(s_data),
+        /* verilator lint_off PINCONNECTEMPTY */
         .A_config_C(),
         .B_config_C(),
         .Config_accessC(),
+        /* verilator lint_on PINCONNECTEMPTY */
         .I_top(I_top),
         .O_top(O_top),
         .T_top(T_top)
     );
-
-    assign wbs_sta_o = 0;
 
     //TODO test behaviour of this clock domain crossing (assume condition is
     //true
@@ -188,9 +190,9 @@ module user_project_wrapper #(
         if (!resetn) begin
             wb_to_fpga <= 1'b0;
         end else begin
-            if (feedback1 && !(wbs_stb_i && wbs_cyc_i && wbs_we_i && !wbs_sta_o && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS))) begin
+            if (feedback1 && !(wbs_stb_i && wbs_cyc_i && wbs_we_i &&  (wbs_adr_i == CONFIG_DATA_WB_ADDRESS))) begin
                 wb_to_fpga <= 1'b0;
-            end else if (wbs_stb_i && wbs_cyc_i && wbs_we_i && !wbs_sta_o && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS)) begin
+            end else if (wbs_stb_i && wbs_cyc_i && wbs_we_i && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS)) begin
                 wb_to_fpga <= 1'b1;
             end else begin
                 wb_to_fpga <= wb_to_fpga;
@@ -227,7 +229,7 @@ module user_project_wrapper #(
         if (wb_rst_i) begin
             config_data <= 32'b0;
         end else begin
-            if (wbs_stb_i && wbs_cyc_i && wbs_we_i && !wbs_sta_o && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS)) begin
+            if (wbs_stb_i && wbs_cyc_i && wbs_we_i && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS)) begin
                 config_data <= wbs_dat_i;
             end
         end
@@ -241,7 +243,7 @@ module user_project_wrapper #(
         if (wb_rst_i) wbs_ack_o <= 1'b0;
         else
             // return ack immediately
-            wbs_ack_o <= (wbs_stb_i && !wbs_sta_o && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS));
+            wbs_ack_o <= (wbs_stb_i && (wbs_adr_i == CONFIG_DATA_WB_ADDRESS));
     end
 
     assign external_clock = io_in[EXTERNAL_CLK_IO];
@@ -278,7 +280,7 @@ module user_project_wrapper #(
 
     // Debug signals
     assign la_data_out[127:126] = {ReceiveLED, efpga_uart_rx};
-    assign la_data_out[125:0] = 126'b0;
+    assign la_data_out[125:0] = {126{1'b0}};
 
     // eFPGA external IOs
     assign O_top[EFPGA_USED_NUM_IOS-1:0] = io_in[EFPGA_IO_HIGHEST:EFPGA_IO_LOWEST];
@@ -287,7 +289,7 @@ module user_project_wrapper #(
 
     assign CLK = clk_sel[CLK_SEL_0] ? (clk_sel[CLK_SEL_1] ? user_clock2 : wb_clk_i) : external_clock;
 
-    assign user_irq = 3'b0;
+    assign user_irq = {3{1'b0}};
 
     // This just drives the highest fabric IO to a constant 0
     assign O_top[EFPGA_USED_NUM_IOS] = 1'b0;

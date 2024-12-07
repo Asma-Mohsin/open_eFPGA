@@ -1,3 +1,5 @@
+/* verilator lint_off UNUSEDSIGNAL */
+/* verilator lint_off UNUSEDPARAM */
 module eFPGA
     #(
         parameter MaxFramesPerCol=20,
@@ -11543,3 +11545,5 @@ S_term_RAM_IO Tile_X9Y13_S_term_RAM_IO (
 );
 
 endmodule
+/* verilator lint_off UNUSEDSIGNAL */
+/* verilator lint_on UNUSEDPARAM */
