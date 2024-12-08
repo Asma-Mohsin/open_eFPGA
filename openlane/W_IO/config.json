@@ -5,8 +5,10 @@
         "dir::src/*.v"
     ],
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 80 225",
-    "GRT_OBS": "met5 0 0 80 225",
+    "DIE_AREA": "0 0 78.5 223.5",
+    "GRT_OBS": "met5 0 0 78.5 223.5",
+    "FP_IO_VEXTEND": 1.5,
+   "FP_IO_HEXTEND": 1.5,
     "SYNTH_MAX_FANOUT": 5,
     "CELL_PAD": 4,
     "SYNTH_LATCH_MAP": "dir::gate_map.v",

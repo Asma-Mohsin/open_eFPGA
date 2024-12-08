@@ -5,8 +5,12 @@
         "dir::src/*.v"
     ],
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 130 50",
     
+    "DIE_AREA": "0 0 128.5 50",
+    "GRT_OBS": "met5 0 0 128.5 50",
+
+   "FP_IO_VEXTEND": 1.5,
+   "FP_IO_HEXTEND": 1.5,
     "SYNTH_MAX_FANOUT":5,
      "CELL_PAD":4,
 
