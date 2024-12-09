@@ -8,9 +8,10 @@
 
     "FP_TAP_VERTICAL_HALO": 50,  "//": "no cell placed between IPs",
     "FP_TAP_HORIZONTAL_HALO": 50, "//": "no cell placed between IPs",
-     "RUN_KLAYOUT_XOR": 0,        "//": "please remove it later",
+     "RUN_KLAYOUT_XOR": 1,        "//": "please remove it later",
+     "RUN_MAGIC_DRC": 0,        "//": "please remove it later",
      "QUIT_ON_SYNTH_CHECKS": 0,
-    "PL_TARGET_DENSITY": 0.55,
+    "PL_TARGET_DENSITY": 0.3,
     "ROUTING_CORES": 10,
     "CLOCK_PERIOD": 40,
     "CLOCK_PORT": "wb_clk_i",
@@ -98,8 +99,8 @@
         "vssa1",
         "vssa2"
     ],
-    "PL_RESIZER_HOLD_SLACK_MARGIN": 1.4,
-    "GLB_RESIZER_HOLD_SLACK_MARGIN": 1.4,
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 2.4,
+    "GLB_RESIZER_HOLD_SLACK_MARGIN": 2.4,
     "SYNTH_USE_PG_PINS_DEFINES": "USE_POWER_PINS",
     "pdk::sky130*": {
         "RT_MAX_LAYER": "met4",
